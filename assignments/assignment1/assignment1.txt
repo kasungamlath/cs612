@@ -1,0 +1,48 @@
+*exercise2*
+
+untargeted
+eps = 0.2
+success rate = 5/5
+eps = 0.1
+success rate = 4/5
+eps = 0.05
+success rate = 1/5
+eps = 0.01
+success rate = 0/5
+
+targeted
+eps = 0.2
+success rate = 1/5
+eps = 0.1
+success rate = 0/5
+eps = 0.05
+success rate = 0/5
+eps = 0.01
+success rate = 0/5
+
+
+*exercise3*
+
+noise (-0.01,0.01) - 1/20
+noise (-0.05,0.05) - 6/20
+noise (-0.1,0.1) - 11/20
+
+When the noise gets large, more adversarial samples lose their adversarial label.
+
+*exercise4*
+
+vanila model
+
+eps=0.02 -> 0/20
+eps=0.05 -> 4/20
+eps=0.1 -> 12/20
+eps=0.2 -> 20/20
+
+adversarial_trained model
+
+eps=0.02 -> 0/20
+eps=0.05 -> 3/20
+eps=0.1 -> 9/20
+eps=0.2 -> 19/20
+
+model with adversarial training is more robust.

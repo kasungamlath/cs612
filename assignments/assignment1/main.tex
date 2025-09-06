@@ -1,0 +1,45 @@
+\documentclass{article}[11pt]
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}  % Added to use \mathbb
+\usepackage{listings}
+\usepackage{ifthen}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{indentfirst}
+
+
+% This sets page margins to .5 inch if using letter paper, and to 1cm
+% if using A4 paper. (This probably isn't strictly necessary.)
+% If using another size paper, use default 1cm margins.
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=1 cm,left=1 cm,right=1cm,bottom=1cm} }
+    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+        {\geometry{top=1cm,left=.5cm,right=.5cm,bottom=.5cm} }
+        {\geometry{top=3cm,left=3cm,right=3cm,bottom=3cm} }
+    }
+
+\usepackage[dvipsnames]{xcolor}
+\newcommand\todo[1]{\colorbox{orange}{todo: #1}}
+
+\title{CS612 Assignment 1}
+\author{Kasun Gamlath}
+% \date{April 2025}
+
+\begin{document}
+% \pagestyle{fancy}
+% \fancyfoot[CO,RE]{\textit{Kasun Gamlath}}
+
+
+\maketitle
+
+% Sections
+\input{q1}
+\input{q2}
+\input{q3}
+\input{q4}
+\input{q5}
+
+\end{document}

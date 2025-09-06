@@ -1,0 +1,46 @@
+\documentclass[12pt]{extarticle}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{blindtext}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage[multiple]{footmisc}
+\usepackage[margin=1.5cm]{geometry}
+
+\usepackage{graphicx}
+\graphicspath{ {./figures/} }
+
+% \usepackage{algorithm2e}
+
+\usepackage[dvipsnames]{xcolor}
+\newcommand\todo[1]{\colorbox{orange}{todo: #1}}
+
+\title{CS612 - AI System Evaluation}
+\author{Kasun}
+
+\begin{document}
+
+% Cover page
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\setcounter{section}{0}
+\setcounter{page}{1}
+
+\input{overview}
+\input{ai-robustness.tex}
+\input{ai-backdoors.tex}
+\input{ai-fairness.tex}
+\input{ai-privacy.tex}
+\input{safety-alignment.tex}
+\input{hallucination.tex}
+\input{interpretability.tex}
+\input{agentic-ai-safety.tex}
+
+\end{document}

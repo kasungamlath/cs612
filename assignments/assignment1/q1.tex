@@ -1,0 +1,110 @@
+\newpage
+
+\section*{Exercise 1}
+
+Assuming the reference image R is a black image with all pixel values 0, i.e., R = [0, 0, ..., 0] (784 zeros for a 28x28 image).
+
+\subsection*{$L_1-norm$ with a threshold (inclusive) of 2}
+Condition: $\sum |r_i - c_i| <= 2$
+
+Since $r_i = 0$, this becomes $\sum |c_i| <= 2$
+
+As pixel values are non-negative, $\sum c_i <= 2$.
+
+This means the sum of all pixel values in the candidate image C must be 0, 1, or 2.
+\begin{itemize}
+    
+
+    \item Case 1: $\sum c_i = 0$
+
+        This means all $c_i$ must be 0.
+
+        Only 1 image: [0, 0, ..., 0] (which is identical to R).
+
+    \item Case 1: $\sum c_i = 1$
+
+        One pixel $c_k$ is 1, and all other pixels are 0.
+
+        There are 784 possible positions for this 1.
+
+        So, 784 images. (e.g., [1, 0, ..., 0], [0, 1, ..., 0], etc.)
+
+    \item Case 3: $\sum c_i = 2$
+    \begin{itemize}
+        \item Subcase 3a: One pixel $c_k$ is 2, and all other pixels are 0.
+
+            There are 784 possible positions for this 2.
+
+            So, 784 images.
+
+        \item Subcase 3b: Two pixels $c_k$ and $c_j (k \neq j)$ are 1, and all other pixels are 0.
+
+            This is "784 choose 2" (combinations). C(784, 2) = 784 * 783 / 2 = 306912.
+
+            So, 306912 images.
+    \end{itemize}
+\end{itemize}
+Total Images for $L_1 =< 2 = 1 + 784 + 784 + 306912 = 308481$
+
+\subsection*{$L_2-norm$ with a threshold (inclusive) of 2}
+Condition: $\sqrt{\sum (r_i - c_i)^2} <= 2$
+\begin{itemize}
+    \item Case 1: $\sum c_i² = 0$
+
+        All $c_i$ must be 0.
+
+        Only 1 image: [0, 0, ..., 0].
+
+    \item Case 2: $\sum c_i² = 1$
+
+        One pixel $c_k$ is 1, all others 0. 1² = 1.
+
+        There are 784 positions for this 1.
+
+        So, 784 images.
+
+    \item Case 3: $\sum c_i² = 2$
+
+        Two pixels $c_k, c_j$ are 1, all others 0. 1² + 1² = 2.
+
+        There are C(784, 2) ways to choose these two positions. C(784, 2) = 306912.
+
+        So, 306912 images.
+
+    \item Case 4: $\sum c_i² = 3$
+
+        Three pixels $c_k, c_j, c_m$ are 1, all others 0. 1² + 1² + 1² = 3.
+
+        There are C(784, 3) ways. C(784, 3) = 784 * 783 * 782 / (3 * 2 * 1) = 80119296.
+
+        So, 80119296 images.
+
+    \item Case 5: $\sum c_i² = 4$
+    \begin{itemize}
+        \item Subcase 5a: One pixel $c_k is 2$, all others 0. 2² = 4.
+
+            There are 784 positions for this 2.
+
+            So, 784 images.
+
+        \item Subcase 5b: Four pixels $c_k, c_j, c_m, c_n$ are 1, all others 0. 1² + 1² + 1² + 1² = 4.
+
+            There are C(784, 4) ways. C(784, 4) = 784 * 783 * 782 * 781 / (4 * 3 * 2 * 1) = 15683222004.
+
+            So, 15683222004 images.
+        \end{itemize}
+
+Total Images for $L_2 =< 2 = 1 + 784 + 306912 + 80119296 + 784 + 15683222004 \approx 15.76 Billion$
+
+\end{itemize}
+
+\subsection*{$L_\infty-norm$ with a threshold (inclusive) of 2}
+
+Condition: $\max(|r_i - c_i|) =< 2$
+Since $r_i = 0$, this becomes $\max(c_i) =< 2$.
+
+This means that every single pixel $c_i$ in the candidate image C must have a value between 0 and 2 (inclusive).
+
+For each of the 784 pixels, it can independently take on one of 3 values: 0, 1, or 2.
+
+Total Images for $ L_\infty =< 2 = 3^{784} $
